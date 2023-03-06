@@ -1,7 +1,7 @@
 package com.example.api.service;
 
 import com.example.api.model.FileDB;
-import com.example.api.repository.FileDBRepository;
+import com.example.api.repository.FileDbRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class FileServiceImpl implements FileService{
 
     @Autowired
-    private FileDBRepository fileDBRepository;
+    private FileDbRepository fileDBRepository;
 
     @Override
     public void saveFile(MultipartFile file) throws IOException {

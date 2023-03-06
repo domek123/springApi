@@ -43,6 +43,18 @@ public class FileController {
     @GetMapping("/api/files/{id}")
     public ResponseEntity<byte[]> getFile(@PathVariable String id) {
 
-        FileDB fileDB = fileService.getFile(id);
+
+        try{
+            FileDB fileDB = fileService.getFile(id);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(fileDB.getData());
+        }catch (Exception e){
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(null);
+        }
     }
 }
